@@ -1,82 +1,49 @@
 <template>
-    <ul role="list" class="divide-y divide-gray-100">
-      <li v-for="person in people" :key="person.email" class="flex justify-between gap-x-6 py-5">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+    <a name="contact"></a><h2 class="text-2xl font-bold text-white">Contact</h2>
+    <ul role="list" class="divide-y divide-gray-800">
+      <li v-for="way in ways" :key="way.email" class="flex justify-between gap-x-6 py-5">
         <div class="flex min-w-0 gap-x-4">
-          <img class="size-12 flex-none rounded-full bg-gray-50" :src="person.imageUrl" alt="" />
+          <img class="size-12 flex-none rounded-full bg-gray-50" :src="way.imageUrl" alt="" />
           <div class="min-w-0 flex-auto">
-            <p class="text-sm/6 font-semibold text-gray-900">{{ person.name }}</p>
-            <p class="mt-1 truncate text-xs/5 text-gray-500">{{ person.email }}</p>
+            <p class="text-sm/6 font-semibold text-white">{{ way.name }}</p>
+            <p class="mt-1 truncate text-sm/5 text-gray-400"><a :href="`mailto:${way.email}`">{{ way.email }}</a></p>
           </div>
         </div>
         <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-          <p class="text-sm/6 text-gray-900">{{ person.role }}</p>
-          <p v-if="person.lastSeen" class="mt-1 text-xs/5 text-gray-500">
-            Last seen <time :datetime="person.lastSeenDateTime">{{ person.lastSeen }}</time>
-          </p>
-          <div v-else class="mt-1 flex items-center gap-x-1.5">
+          <p class="text-xs/6 text-white">{{ way.domain }}</p>
+          <div v-if="way.isMain" class="mt-1 flex items-center gap-x-1.5">
             <div class="flex-none rounded-full bg-emerald-500/20 p-1">
               <div class="size-1.5 rounded-full bg-emerald-500" />
             </div>
-            <p class="text-xs/5 text-gray-500">Online</p>
+            <p class="text-xs/5 text-gray-400">Mainly used</p>
           </div>
+          <p v-else class="mt-1 text-xs/5 text-gray-400">
+            Occasionally used
+          </p>
         </div>
       </li>
     </ul>
-  </template>
+  </div>
+</template>
   
-  <script setup lang="ts">
-  const people = [
-    {
-      name: 'Leslie Alexander',
-      email: 'leslie.alexander@example.com',
-      role: 'Co-Founder / CEO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: '3h ago',
-      lastSeenDateTime: '2023-01-23T13:23Z',
-    },
-    {
-      name: 'Michael Foster',
-      email: 'michael.foster@example.com',
-      role: 'Co-Founder / CTO',
-      imageUrl:
-        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: '3h ago',
-      lastSeenDateTime: '2023-01-23T13:23Z',
-    },
-    {
-      name: 'Dries Vincent',
-      email: 'dries.vincent@example.com',
-      role: 'Business Relations',
-      imageUrl:
-        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: null,
-    },
-    {
-      name: 'Lindsay Walton',
-      email: 'lindsay.walton@example.com',
-      role: 'Front-end Developer',
-      imageUrl:
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: '3h ago',
-      lastSeenDateTime: '2023-01-23T13:23Z',
-    },
-    {
-      name: 'Courtney Henry',
-      email: 'courtney.henry@example.com',
-      role: 'Designer',
-      imageUrl:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: '3h ago',
-      lastSeenDateTime: '2023-01-23T13:23Z',
-    },
-    {
-      name: 'Tom Cook',
-      email: 'tom.cook@example.com',
-      role: 'Director of Product',
-      imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-      lastSeen: null,
-    },
-  ]
-  </script>
+<script setup lang="ts">
+const ways = [
+  {
+    name: 'Personal Email',
+    email: 'tomhwi01@gmail.com',
+    domain: 'Gmail',
+    imageUrl:
+      'https://workspace.google.com/static/favicon.ico',
+    isMain: true,
+  },
+  {
+    name: 'Personal Email',
+    email: 'tomhwi01@outlook.com',
+    domain: 'Mcrosoft Outlook',
+    imageUrl:
+      'https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/Icon-Outlook-28x281?resMode=sharp2&amp;op_usm=1.5,0.65,15,0&amp;qlt=85',
+    isMain: false,
+  },
+]
+</script>
