@@ -6,11 +6,11 @@
         <div v-for="callout in callouts" :key="callout.name" class="group">
           <a :href="callout.href" target="_blank" rel="noopener noreferrer">
             <img :src="callout.imageSrc" :alt="callout.imageAlt" type="image/jpeg" class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-2/1 lg:aspect-square" />
-            <h3 class="mt-6 text-base font-semibold text-white">
+            <h3 class="mt-1 text-base font-semibold text-white">
                 {{ callout.name }}
             </h3>
           </a>
-            <p class="text-sm text-gray-400">{{ callout.description }}</p>
+            <p class="text-sm text-gray-400 pb-6">{{ callout.description }}</p>
         </div>
       </div>
     </div>

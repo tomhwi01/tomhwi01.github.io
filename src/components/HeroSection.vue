@@ -23,12 +23,13 @@
         </div>
       </nav>
       <dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-        <div class="fixed inset-y-0 right-0 z-50 w-2/5 overflow-y-auto bg-gray-800/99 px-6 py-6 sm:max-w-sm">
+        <div class="fixed inset-y-0 right-0 z-50 w-sm max-w-screen overflow-y-auto bg-gray-800/99 px-6 py-6">
           <div class="text-end">
             <div class="inline">
               <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = false">
                 <span class="sr-only">Close menu</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400 fill-current h-6" alt="Close button" viewBox="0 0 32 32"><g data-name="Layer 2"><path d="M4 29a1 1 0 0 1-.71-.29 1 1 0 0 1 0-1.42l24-24a1 1 0 1 1 1.42 1.42l-24 24A1 1 0 0 1 4 29Z"/><path d="M28 29a1 1 0 0 1-.71-.29l-24-24a1 1 0 0 1 1.42-1.42l24 24a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z"/></g><path d="M0 0h32v32H0z" style="fill:none"/></svg></button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400 fill-current h-6" alt="Close button" viewBox="0 0 32 32"><g data-name="Layer 2"><path d="M4 29a1 1 0 0 1-.71-.29 1 1 0 0 1 0-1.42l24-24a1 1 0 1 1 1.42 1.42l-24 24A1 1 0 0 1 4 29Z"/><path d="M28 29a1 1 0 0 1-.71-.29l-24-24a1 1 0 0 1 1.42-1.42l24 24a1 1 0 0 1 0 1.42A1 1 0 0 1 28 29Z"/></g><path d="M0 0h32v32H0z" style="fill:none"/></svg>
+              </button>
             </div>
           </div>
           <div class="mt-6 flow-root">
